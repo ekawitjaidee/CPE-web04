@@ -5,26 +5,16 @@ const path = require('path');
 const server = http.createServer( (req,res) => {
   console.log(req.url);
   if(req.url === '/') {
-    // res.writeHead(200, { 'Content-Type': 'text/html'});
-    // res.end('<h1>This is index.html</h1>');
+   
 
     fs.readFile(path.join(__dirname, 'index.html'), (err,content) => {
       if(err) throw err;
       res.writeHead(200, { 'Content-Type': 'text/html'});
       res.end(content);
     });
-  // } else if (req.url === '/index') {
-  //   // res.writeHead(200, { 'Content-Type': 'text/html'});
-  //   // res.end('<h1>This is ABOUT PAGE</h1>');
 
-  //   fs.readFile(path.join(__dirname,'index.html'), (err,content) => {
-  //     if(err) throw err;
-  //     res.writeHead(200, { 'Content-Type': 'text/html'});
-  //     res.end(content);
-  //   });
   } else if (req.url === '/gallery') {
-    // res.writeHead(200, { 'Content-Type': 'text/html'});
-    // res.end('<h1>This is ABOUT PAGE</h1>');
+  
 
     fs.readFile(path.join(__dirname,'gallery.html'), (err,content) => {
       if(err) throw err;
@@ -39,7 +29,7 @@ const server = http.createServer( (req,res) => {
       res.end(content);
     });
   } else if (req.url === '/profile') {
-    fs.readFile(path.join(__dirname, 'Startpage.html'), (err,content) => {
+    fs.readFile(path.join(__dirname, 'profile.html'), (err,content) => {
       if(err) throw err;
       res.writeHead(200, { 'Content-Type': 'text/html'});
       res.end(content);
@@ -226,8 +216,7 @@ const server = http.createServer( (req,res) => {
       res.end(content);
     });
   } else {
-    // res.writeHead(404, { 'content-type': 'text/html'});
-    // res.end('<h3>Eror 404: Not Found</h3>');
+
     fs.readFile(path.join(__dirname,'404.html'), (err,content) => {
       if(err) throw err;
       res.writeHead(404, { 'Content-Type': 'text/html'});
